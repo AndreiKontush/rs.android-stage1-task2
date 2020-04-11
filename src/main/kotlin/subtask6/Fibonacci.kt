@@ -2,8 +2,15 @@ package subtask6
 
 class Fibonacci {
 
-    // TODO: Complete the following function
     fun productFibonacciSequenceFor(n: Int): IntArray {
-        throw NotImplementedError("Not implemented")
+        var temp: Int
+        var left = 0
+        var right = 1
+        while (left * right < n) {
+            temp = right
+            right += left
+            left = temp
+        }
+        return if (left * right == n) intArrayOf(left, right, 1) else intArrayOf(left, right, 0)
     }
 }
